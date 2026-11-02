@@ -1,0 +1,3 @@
+== STEP 4: PUSH TO GHCR ==
+2026-11-02T08:15:32Z
+invalid reference format

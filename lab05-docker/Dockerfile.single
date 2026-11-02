@@ -1,0 +1,11 @@
+# Anti-pattern for teaching: build tools, devDependencies, and runtime share ONE filesystem.
+FROM node:20
+WORKDIR /app
+COPY . .
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends build-essential python3 git \
+ && npm install \
+ && npm run build
+ENV PORT=3000
+EXPOSE 3000
+CMD ["node", "dist/server.js"]

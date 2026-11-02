@@ -1,0 +1,110 @@
+== STEP 3: BUILD + RUN ==
+2026-11-02T07:11:12Z
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.48kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 0.8s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/node:20-alpine
+#4 DONE 0.8s
+
+#5 [internal] load metadata for docker.io/library/alpine:3.20
+#5 DONE 0.8s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 137B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 DONE 0.0s
+
+#8 [runner 1/7] FROM docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#8 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc
+#8 resolve docker.io/library/alpine:3.20@sha256:d9e853e87e55526f6b2917df91a2115c36dd7c696a35be12163d44e6e2a4b6bc 0.0s done
+#8 CACHED
+
+#9 [builder 1/7] FROM docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293
+#9 resolve docker.io/library/node:20-alpine@sha256:fb4cd12c85ee03686f6af5362a0b0d56d50c58a04632e6c0fb8363f609372293 0.0s done
+#9 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 219B done
+#7 DONE 0.0s
+
+#10 [builder 6/7] COPY src ./src
+#10 CACHED
+
+#11 [builder 3/7] COPY package.json package-lock.json ./
+#11 CACHED
+
+#12 [builder 2/7] WORKDIR /app
+#12 CACHED
+
+#13 [builder 4/7] RUN npm ci
+#13 CACHED
+
+#14 [builder 5/7] COPY tsconfig.json ./
+#14 CACHED
+
+#15 [builder 7/7] RUN npm run build  && npm prune --omit=dev  && npm cache clean --force
+#15 CACHED
+
+#16 [runner 2/7] RUN apk add --no-cache libstdc++  && addgroup -S app  && adduser -S -G app -H -s /sbin/nologin app
+#16 0.211 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/main/x86_64/APKINDEX.tar.gz
+#16 0.373 fetch https://dl-cdn.alpinelinux.org/alpine/v3.20/community/x86_64/APKINDEX.tar.gz
+#16 0.666 (1/2) Installing libgcc (13.2.1_git20240309-r1)
+#16 0.671 (2/2) Installing libstdc++ (13.2.1_git20240309-r1)
+#16 0.694 OK: 10 MiB in 16 packages
+#16 DONE 0.8s
+
+#17 [runner 3/7] COPY --from=builder /usr/local/bin/node /usr/local/bin/node
+#17 DONE 1.8s
+
+#18 [runner 4/7] WORKDIR /app
+#18 DONE 0.0s
+
+#19 [runner 5/7] COPY --from=builder --chown=app:app /app/package.json ./package.json
+#19 DONE 0.1s
+
+#20 [runner 6/7] COPY --from=builder --chown=app:app /app/node_modules ./node_modules
+#20 DONE 0.2s
+
+#21 [runner 7/7] COPY --from=builder --chown=app:app /app/dist ./dist
+#21 DONE 0.1s
+
+#22 exporting to image
+#22 exporting layers
+#22 exporting layers 2.8s done
+#22 exporting manifest sha256:0d65b185957d33551af113761d2ccafff084fbefbc16567d8c1e2152a2f1b03f 0.0s done
+#22 exporting config sha256:781019dbfd7cb2785af75c23ecff5d81670fc258d69e58b348715c93d3a37660 0.0s done
+#22 exporting attestation manifest sha256:563fef832fff36e17620d43b6cadcf60e67d3e488f3c19d96605d6623b8ffb62 0.0s done
+#22 exporting manifest list sha256:21e569cb31caaa1ad89c755beee5a5457d2852d1ceced4eca55b538eb2268654 0.0s done
+#22 naming to ghcr.io/yeyint3424/vlsc-s05-api:1.0.0 done
+#22 unpacking to ghcr.io/yeyint3424/vlsc-s05-api:1.0.0
+#22 unpacking to ghcr.io/yeyint3424/vlsc-s05-api:1.0.0 0.8s done
+#22 DONE 3.7s
+arch=amd64 os=linux bytes=162371776 student=2500IT10016
+7f12e72cede939caeeb7d45f3aa2f8746d4489105c42eb54774ca278180e415a
+Waiting for the app to start...
+--- /info ---
+{"service":"vlsc-s05-api","appEnv":"production","studentId":"2500IT10016","hostname":"7f12e72cede9","arch":"x64","platform":"linux","nodeVersion":"v20.20.2","uptimeSeconds":3}
+--- /health ---
+http=200
+--- user (must be DIFFERENT root) ---
+uid=100(app) gid=101(app) groups=101(app)
+--- limits (must be 268435456) ---
+268435456
+--- logs ---
+vlsc-s05-api listening on 0.0.0.0:3000 env=production
+Waiting 35s for Docker to run Healthcheck...
+--- health status (Must be healthy) ---
+healthy
+{"service":"vlsc-s05-api","appEnv":"dev","studentId":"UNSET","hostname":"20f9bb95f1d5","arch":"x64","platform":"linux","nodeVersion":"v20.20.2","uptimeSeconds":2}# Answer: Injecting APP_ENV at runtime keeps one immutable image that can be promoted across dev/staging/prod with different config, and avoids baking environment-specific values or secrets into image layers where anyone who pulls the image can read them.

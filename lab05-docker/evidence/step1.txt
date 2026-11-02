@@ -1,0 +1,42 @@
+== STEP 1: CLOUD ENVIRONMENT AUDIT ==
+2026-11-02T07:00:43Z
+CODESPACES=true
+CODESPACE_NAME=glorious-space-capybara-x6j4jp6q669h6rgq
+GITHUB_USER=YeYint3424
+Linux codespaces-093101 6.8.0-1064-azure #72~22.04.1-Ubuntu SMP Wed Jul 22 23:39:45 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+NAME="Ubuntu"
+cpus=2
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       1.8Gi       400Mi        63Mi       5.9Gi       5.9Gi
+Swap:             0B          0B          0B
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G   11G   19G  37% /
+Client:
+ Version:           29.9.2-2
+ API version:       1.56
+ Go version:        go1.27.3
+ Git commit:        a82e528901260c8df6073311379eac65f92db204
+ Built:             Thu Oct 22 00:00:00 2026
+ OS/Arch:           linux/amd64
+ Context:           default
+
+Server:
+ Engine:
+  Version:          29.9.2-2
+  API version:      1.56 (minimum version 1.40)
+  Go version:       go1.27.3
+  Git commit:       0367cbeb49b9d98cb0b4f51e95f7b54b4803e76c
+  Built:            Thu Oct 22 00:00:00 2026
+  OS/Arch:          linux/amd64
+  Experimental:     false
+ containerd:
+  Version:          2.4.2-4
+  GitCommit:        b7a25261e029d68978bbf290df0a62fc819b3c51
+ runc:
+  Version:          1.5.2-15
+  GitCommit:        29dd3dc2b13b4123162e5fe132504bb4b15569f1
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        
+driver=overlayfs cgroup=v2 cpus=2 mem=8328077312
