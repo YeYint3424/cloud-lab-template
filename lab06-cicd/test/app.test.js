@@ -21,14 +21,14 @@ after(() => {
 
 test("GET /healthz returns 200 and status ok", async () => {
   const res = await fetch(`${baseUrl}/healthz`);
-  assert.equal(res.status, 500);
+  assert.equal(res.status, 200);
   const body = await res.json();
   assert.equal(body.status, "ok");
 });
 
 test("GET /api/status returns 200 and service identity", async () => {
   const res = await fetch(`${baseUrl}/api/status`);
-  assert.equal(res.status, 500);
+  assert.equal(res.status, 200);
   const body = await res.json();
   assert.equal(body.service, "vlsc-cicd-lab06");
   assert.ok(typeof body.commit === "string");
