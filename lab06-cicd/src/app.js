@@ -17,7 +17,7 @@ app.get("/healthz", (req, res) => {
 app.get("/api/status", (req, res) => {
   res.status(200).json({
     service: "vlsc-cicd-lab06",
-    commit: process.env.GIT_SHA || "unknown",
+    commit: process.env.GIT_SHA || process.env.RENDER_GIT_COMMIT || "unknown",
     node: process.version,
   });
 });
